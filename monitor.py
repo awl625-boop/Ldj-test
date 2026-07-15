@@ -76,9 +76,34 @@ def find_code(text: str):
     return None
 
 
+CODE_TOKEN_PATTERN = re.compile(
+    r"\b(?:code|coupon|promo)\s*[:\-]?\s*([A-Z0-9]{4,15})\b", re.IGNORECASE
+)
+
+
+def extract_code_token(text: str):
+    if not text:
+        return None
+    m = CODE_TOKEN_PATTERN.search(text)
+    return m.group(1).upper() if m else None
+
+
+def build_quick_link(product: dict, code_token) -> str:
+    variants = product.get("variants", [])
+    variant_id = variants[0].get("id") if variants else None
+    if not variant_id:
+        handle = product.get("handle", "")
+        return f"{STORE}/products/{handle}"
+
+    cart_add_path = f"/cart/add?id={variant_id}&quantity=1"
+    if code_token:
+        import urllib.parse
+        encoded_redirect = urllib.parse.quote(cart_add_path, safe="")
+        return f"{STORE}/discount/{code_token}?redirect={encoded_redirect}"
+    return f"{STORE}{cart_add_path}"
+
+
 def price_is_one_dollar(product: dict) -> bool:
-    """Secondary signal: check the actual listed price for any variant
-    priced at exactly $1, in addition to the description text check."""
     for variant in product.get("variants", []):
         try:
             price = float(variant.get("price", ""))
@@ -152,26 +177,29 @@ def main() -> None:
 
         description = p.get("body_html", "")
         code = find_code(description)
+        code_token = extract_code_token(description)
         price_flag = price_is_one_dollar(p)
         signal = code or ("price listed at $1" if price_flag else None)
         handle = p.get("handle", "")
         url = f"{STORE}/products/{handle}"
         title = p.get("title", "Unknown product")
+        quick_link = build_quick_link(p, code_token)
 
         log_change(title, url, matched=bool(signal), snippet=description or "(empty)")
 
         if signal and pid not in already_alerted_set:
-            hits.append((pid, title, signal, url))
+            hits.append((pid, title, signal, url, quick_link, code_token))
 
     if first_run:
         print(f"First run: recorded baseline for {len(products)} products. No alerts sent.")
     elif hits:
-        for pid, title, code, url in hits:
+        for pid, title, code, url, quick_link, code_token in hits:
             print(f"MATCH: {title} -- {code} -- {url}")
+            code_line = f"Code: {code_token}\n" if code_token else ""
             send_alert(
                 title="LDJ $1 giveaway detected!",
-                message=f"{title}\nDetected: {code}\n{url}",
-                url=url,
+                message=f"{title}\nDetected: {code}\n{code_line}Quick link: {quick_link}\nProduct page: {url}",
+                url=quick_link,
             )
             already_alerted_set.add(pid)
     else:
