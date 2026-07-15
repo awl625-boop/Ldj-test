@@ -27,9 +27,29 @@ NTFY_TOPIC = "ldj-watch-9dc7a477"
 CODE_PATTERNS = [
     re.compile(r"\b(?:code|coupon|promo)\s*[:\-]?\s*[A-Z0-9]{4,15}\b", re.IGNORECASE),
 ]
-STANDALONE_DOLLAR_PATTERN = re.compile(r"\$1(?![\d,])")
+
+# Match $1, $1.00, one dollar, 1 buck, penny deal, etc.
+PRICE_PATTERNS = [
+    re.compile(r"\$1(?![\d,])"),  # $1 (not $10, $100, etc.)
+    re.compile(r"\$1\.00\b"),  # $1.00
+    re.compile(r"\bone\s+dollar\b", re.IGNORECASE),  # one dollar
+    re.compile(r"\b1\s+buck\b", re.IGNORECASE),  # 1 buck
+    re.compile(r"\bpenny\s+deal\b", re.IGNORECASE),  # penny deal
+    re.compile(r"\bone\s+cent\b", re.IGNORECASE),  # one cent
+]
+
+# Giveaway signals - expanded with more variations
 SOFT_SIGNAL_PATTERN = re.compile(
-    r"\b(?:giveaway|snatch|win this item|tag\s*@luxedujour)\b", re.IGNORECASE
+    r"\b(?:giveaway|snatch|win this item|tag\s*@luxedujour|free item|complimentary|"
+    r"no charge|zero cost|at no cost|on us|our treat|grab it|claim|score)\b",
+    re.IGNORECASE
+)
+
+# Urgent/limited time signals (often paired with giveaways)
+URGENCY_PATTERN = re.compile(
+    r"\b(?:limited|only|first|while|last|hurry|rush|quick|fast|asap|"
+    r"before|ends|expires|gone|one only|exclusive)\b",
+    re.IGNORECASE
 )
 
 HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; personal-price-watcher/1.0)"}
@@ -63,16 +83,24 @@ def fetch_all_products() -> list:
 def find_code(text: str):
     if not text:
         return None
+    
+    # Check for explicit coupon codes first
     for pattern in CODE_PATTERNS:
         m = pattern.search(text)
         if m:
             return m.group(0)
-    if STANDALONE_DOLLAR_PATTERN.search(text):
-        m = re.search(r".{0,25}\$1(?![\d,]).{0,50}", text, re.IGNORECASE)
-        return m.group(0).strip() if m else "$1 mention"
+    
+    # Check for price signals ($1, one dollar, etc.)
+    for pattern in PRICE_PATTERNS:
+        if pattern.search(text):
+            m = re.search(r".{0,25}" + pattern.pattern + r".{0,50}", text, re.IGNORECASE)
+            return m.group(0).strip() if m else "Price alert: $1 or less"
+    
+    # Check for giveaway signals
     m = SOFT_SIGNAL_PATTERN.search(text)
     if m:
         return m.group(0)
+    
     return None
 
 
