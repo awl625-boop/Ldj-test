@@ -12,7 +12,12 @@ Strategy each run:
   2. Compare each product's `updated_at` to what we saw last run (stored in
      state.json). Only products that changed get their description scanned.
   3. Scan changed descriptions for a $1 giveaway signal.
-  4. If a match is found, push a notification to your phone via ntfy.sh.
+  4. If a match is found AND we have never alerted on this product ID
+     before, push a notification to your phone via ntfy.sh. The
+     "never alerted before" check is a hard guardrail against duplicate
+     alerts -- it's tracked separately from the change-detection state, so
+     even if a run overlaps with another run and state.json doesn't save
+     cleanly, you still can't get alerted on the same listing twice.
   5. Log every changed description (matched or not) to changelog.md as a
      safety net, in case LDJ reword things in a way the patterns miss.
   6. Save the updated state for next run.
@@ -133,6 +138,8 @@ def send_alert(title: str, message: str, url: str) -> None:
 def main() -> None:
     state = load_state()
     seen_updated_at = state.get("updated_at", {})
+    already_alerted = state.get("already_alerted", [])
+    already_alerted_set = set(already_alerted)
     new_seen_updated_at = dict(seen_updated_at)
 
     print("Fetching full catalog...")
@@ -161,23 +168,32 @@ def main() -> None:
         # Log every change as a safety net, whether or not it matched.
         log_change(title, url, matched=bool(code), snippet=description or "(empty)")
 
-        if code:
-            hits.append((title, code, url))
+        # GUARDRAIL: only alert if we have never alerted on this product
+        # before. This is checked independently of updated_at, so it holds
+        # even if state.json doesn't save cleanly between runs (e.g. two
+        # runs overlapping and racing to push).
+        if code and pid not in already_alerted_set:
+            hits.append((pid, title, code, url))
 
     if first_run:
         print(f"First run: recorded baseline for {len(products)} products. No alerts sent.")
     elif hits:
-        for title, code, url in hits:
+        for pid, title, code, url in hits:
             print(f"MATCH: {title} -- {code} -- {url}")
             send_alert(
                 title="LDJ $1 giveaway detected!",
                 message=f"{title}\nDetected: {code}\n{url}",
                 url=url,
             )
+            already_alerted_set.add(pid)
     else:
-        print("No matches this run.")
+        print("No new matches this run.")
 
-    save_state({"updated_at": new_seen_updated_at, "last_run": time.time()})
+    save_state({
+        "updated_at": new_seen_updated_at,
+        "already_alerted": sorted(already_alerted_set),
+        "last_run": time.time(),
+    })
 
 
 if __name__ == "__main__":
