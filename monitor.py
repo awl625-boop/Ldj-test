@@ -6,21 +6,6 @@ Scans every product listing on ldj.com for a $1 giveaway that has just been
 added to the product DESCRIPTION (not the price). Shopify stores expose all
 product data, including the full description (body_html) and a last-updated
 timestamp, via a public JSON feed at /products.json.
-
-Strategy each run:
-  1. Pull every product across the whole catalog (paginated, 250/page).
-  2. Compare each product's `updated_at` to what we saw last run (stored in
-     state.json). Only products that changed get their description scanned.
-  3. Scan changed descriptions for a $1 giveaway signal.
-  4. If a match is found AND we have never alerted on this product ID
-     before, push a notification to your phone via ntfy.sh. The
-     "never alerted before" check is a hard guardrail against duplicate
-     alerts -- it's tracked separately from the change-detection state, so
-     even if a run overlaps with another run and state.json doesn't save
-     cleanly, you still can't get alerted on the same listing twice.
-  5. Log every changed description (matched or not) to changelog.md as a
-     safety net, in case LDJ reword things in a way the patterns miss.
-  6. Save the updated state for next run.
 """
 
 import json
@@ -37,19 +22,12 @@ STATE_FILE = Path(__file__).parent / "state.json"
 CHANGELOG_FILE = Path(__file__).parent / "changelog.md"
 MAX_CHANGELOG_ENTRIES = 200
 
-# ntfy.sh topic to push alerts to.
 NTFY_TOPIC = "ldj-watch-9dc7a477"
 
-# Explicit code phrasing: "Use code: DIORBAGDROP at checkout..."
 CODE_PATTERNS = [
     re.compile(r"\b(?:code|coupon|promo)\s*[:\-]?\s*[A-Z0-9]{4,15}\b", re.IGNORECASE),
 ]
-# Robust fallback: a literal standalone "$1" is a strong signal on its own --
-# no real handbag is ever priced at $1 -- and it doesn't depend on exact
-# wording, so it still catches a reworded description. Negative lookahead
-# avoids false-matching "$1,500" or "$150".
 STANDALONE_DOLLAR_PATTERN = re.compile(r"\$1(?![\d,])")
-# Weaker fallback: known giveaway phrasing even without a literal $1.
 SOFT_SIGNAL_PATTERN = re.compile(
     r"\b(?:giveaway|snatch|win this item|tag\s*@luxedujour)\b", re.IGNORECASE
 )
@@ -78,7 +56,7 @@ def fetch_all_products() -> list:
             break
         products.extend(batch)
         page += 1
-        time.sleep(0.5)  # be polite, don't hammer the store
+        time.sleep(0.5)
     return products
 
 
@@ -157,7 +135,7 @@ def main() -> None:
         if first_run:
             continue
         if seen_updated_at.get(pid) == updated_at:
-            continue  # unchanged since last run
+            continue
 
         description = p.get("body_html", "")
         code = find_code(description)
@@ -165,13 +143,8 @@ def main() -> None:
         url = f"{STORE}/products/{handle}"
         title = p.get("title", "Unknown product")
 
-        # Log every change as a safety net, whether or not it matched.
         log_change(title, url, matched=bool(code), snippet=description or "(empty)")
 
-        # GUARDRAIL: only alert if we have never alerted on this product
-        # before. This is checked independently of updated_at, so it holds
-        # even if state.json doesn't save cleanly between runs (e.g. two
-        # runs overlapping and racing to push).
         if code and pid not in already_alerted_set:
             hits.append((pid, title, code, url))
 
@@ -185,16 +158,4 @@ def main() -> None:
                 message=f"{title}\nDetected: {code}\n{url}",
                 url=url,
             )
-            already_alerted_set.add(pid)
-    else:
-        print("No new matches this run.")
-
-    save_state({
-        "updated_at": new_seen_updated_at,
-        "already_alerted": sorted(already_alerted_set),
-        "last_run": time.time(),
-    })
-
-
-if __name__ == "__main__":
-    main()
+            already_alerted_
