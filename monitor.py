@@ -76,6 +76,19 @@ def find_code(text: str):
     return None
 
 
+def price_is_one_dollar(product: dict) -> bool:
+    """Secondary signal: check the actual listed price for any variant
+    priced at exactly $1, in addition to the description text check."""
+    for variant in product.get("variants", []):
+        try:
+            price = float(variant.get("price", ""))
+        except (TypeError, ValueError):
+            continue
+        if abs(price - 1.0) < 0.01:
+            return True
+    return False
+
+
 def load_state() -> dict:
     if STATE_FILE.exists():
         return json.loads(STATE_FILE.read_text())
@@ -139,14 +152,16 @@ def main() -> None:
 
         description = p.get("body_html", "")
         code = find_code(description)
+        price_flag = price_is_one_dollar(p)
+        signal = code or ("price listed at $1" if price_flag else None)
         handle = p.get("handle", "")
         url = f"{STORE}/products/{handle}"
         title = p.get("title", "Unknown product")
 
-        log_change(title, url, matched=bool(code), snippet=description or "(empty)")
+        log_change(title, url, matched=bool(signal), snippet=description or "(empty)")
 
-        if code and pid not in already_alerted_set:
-            hits.append((pid, title, code, url))
+        if signal and pid not in already_alerted_set:
+            hits.append((pid, title, signal, url))
 
     if first_run:
         print(f"First run: recorded baseline for {len(products)} products. No alerts sent.")
@@ -158,4 +173,16 @@ def main() -> None:
                 message=f"{title}\nDetected: {code}\n{url}",
                 url=url,
             )
-            already_alerted_
+            already_alerted_set.add(pid)
+    else:
+        print("No new matches this run.")
+
+    save_state({
+        "updated_at": new_seen_updated_at,
+        "already_alerted": sorted(already_alerted_set),
+        "last_run": time.time(),
+    })
+
+
+if __name__ == "__main__":
+    main()
