@@ -34,10 +34,11 @@ jobs:
           git diff --quiet --cached || (
             git commit -m "update state [skip ci]" &&
             for i in {1..5}; do
-              if git pull --rebase && git push; then
+              if git pull --rebase --autostash && git push; then
                 echo "Successfully pushed state"
                 exit 0
               fi
+              git rebase --abort 2>/dev/null || true
               echo "Push attempt $i failed, retrying in 2 seconds..."
               sleep 2
             done
