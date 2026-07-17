@@ -152,10 +152,6 @@ Strap Drop: 25"Certified authentic EN/AI
 - **[no match]** Chanel Aged Calfskin 2.55 Reissue Flap Bag -- https://ldj.com/products/chanel-aged-calfskin-2-55-reissue-flap-bag
   > <p class="p1">Please refer to the provided photos for a comprehensive visual of any notable wear. The exterior reflects some hardware scuffing. The interior reflects some marks and staining and slight
 
-- **[no match]** Chanel Medium Lambskin Vintage Diana Flap Bag -- https://ldj.com/products/chanel-medium-lambskin-vintage-diana-flap-bag
-  > <p class="p1">Please refer to the provided photos for a comprehensive visual of any notable wear. The exterior reflects some leather scratching and wear. The interior reflects some surface wear.</p>
-<
-
 - **[no match]** Chanel Mini Sequin Classic Single Flap Bag -- https://ldj.com/products/chanel-mini-sequin-classic-single-flap-bag
   > <p>Please refer to the provided photos for a comprehensive visual of any notable wear. </p>
 <p>Strap Drop: 12-22"</p>
@@ -199,4 +195,8 @@ Strap Dr
 Strap Drop: 9"
 
 Certified Authentic EN/BA
+
+- **[no match]** Hermes Chai Epsom Mini Kelly -- https://ldj.com/products/hermes-chai-epsom-mini-kelly
+  > <p class="p1">Please refer to the provided photos for a comprehensive visual of any notable wear. </p>
+<p class="p1">Certified authentic SS/AI</p>
 
