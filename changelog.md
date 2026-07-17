@@ -158,10 +158,6 @@ Strap Drop: 25"Certified authentic EN/AI
 <col width="287">
 <col width="28
 
-- **[no match]** Bottega Veneta Mini Intrecciato Nappa Jodie -- https://ldj.com/products/bottega-veneta-mini-intrecciato-nappa-jodie-2
-  > <p class="p1">Please refer to the provided photos for a comprehensive visual of any notable wear. The exterior reflects substantial leather wear and staining.</p>
-<p class="p1">Certified Authentic SS/
-
 - **[no match]** Chanel Aged Calfskin 2.55 Reissue Flap Bag -- https://ldj.com/products/chanel-aged-calfskin-2-55-reissue-flap-bag
   > <p class="p1">Please refer to the provided photos for a comprehensive visual of any notable wear. The exterior reflects some hardware scuffing. The interior reflects some marks and staining and slight
 
@@ -200,3 +196,7 @@ Strap Drop: 25"Certified authentic EN/AI
   > Please refer to the provided photos for a comprehensive visual of any notable wear. The exterior presents minor hardware scuffing. There are some missing crystals on one earring.
 
 Certified Authentic 
+
+- **[no match]** Hermes Vintage Noir Box Calf Kelly Sport MM -- https://ldj.com/products/hermes-vintage-noir-box-calf-kelly-sport-mm
+  > Please refer to the provided photos for a comprehensive visual of any notable wear. The exterior shows minor scratching and slight hardware scuffing. The interior reflects moderate scuffing.
+
