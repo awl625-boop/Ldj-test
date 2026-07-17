@@ -45,6 +45,25 @@ SOFT_SIGNAL_PATTERN = re.compile(
     re.IGNORECASE
 )
 
+# Fuzzy/typo variations of common giveaway keywords
+# Catches things like: giveawya, g1veaway, sn4tch, fr33, w1n, etc.
+FUZZY_SIGNAL_PATTERN = re.compile(
+    r"\b(?:g[i1]v[e3]aw[a4]y[a4]?|sn[a4]tch|w[i1]n|fr[e3][e3]|complim[e3]nt[a4]ry|"
+    r"z[e3]r[o0]\s*c[o0]st|t[a4]g\s*@|r[a4]ffl[e3]|c[o0]nt[e3]st|g[i1]v[e3]?)\b",
+    re.IGNORECASE
+)
+
+# Instagram requirement detection - catches IG, instagram, @, followers, etc.
+# Fuzzy matching for "instagram" -> "instogram", "insta", "ig", etc.
+INSTAGRAM_PATTERN = re.compile(
+    r"(?:\b(?:ig|insta|instagram|instag[r0]m)\b|"
+    r"@[\w\.]+(?:instagram)?|"
+    r"(?:public\s+)?instagram|follow.*(?:ig|insta|instagram)|"
+    r"instagram\s+(?:required|handle|account|proof)|"
+    r"must\s+have.*(?:ig|instagram))",
+    re.IGNORECASE
+)
+
 # Urgent/limited time signals (often paired with giveaways)
 URGENCY_PATTERN = re.compile(
     r"\b(?:limited|only|first|while|last|hurry|rush|quick|fast|asap|"
@@ -101,7 +120,19 @@ def find_code(text: str):
     if m:
         return m.group(0)
     
+    # Check for fuzzy/typo variations of giveaway keywords
+    m = FUZZY_SIGNAL_PATTERN.search(text)
+    if m:
+        return f"Fuzzy match: {m.group(0)}"
+    
     return None
+
+
+def check_instagram_requirement(text: str) -> bool:
+    """Check if listing requires public Instagram"""
+    if not text:
+        return False
+    return bool(INSTAGRAM_PATTERN.search(text))
 
 
 CODE_TOKEN_PATTERN = re.compile(
@@ -207,6 +238,7 @@ def main() -> None:
         code = find_code(description)
         code_token = extract_code_token(description)
         price_flag = price_is_one_dollar(p)
+        ig_required = check_instagram_requirement(description)
         signal = code or ("price listed at $1" if price_flag else None)
         handle = p.get("handle", "")
         url = f"{STORE}/products/{handle}"
@@ -216,17 +248,18 @@ def main() -> None:
         log_change(title, url, matched=bool(signal), snippet=description or "(empty)")
 
         if signal and pid not in already_alerted_set:
-            hits.append((pid, title, signal, url, quick_link, code_token))
+            hits.append((pid, title, signal, url, quick_link, code_token, ig_required))
 
     if first_run:
         print(f"First run: recorded baseline for {len(products)} products. No alerts sent.")
     elif hits:
-        for pid, title, code, url, quick_link, code_token in hits:
+        for pid, title, code, url, quick_link, code_token, ig_required in hits:
             print(f"MATCH: {title} -- {code} -- {url}")
             code_line = f"Code: {code_token}\n" if code_token else ""
+            ig_line = "⚠️ IG REQUIRED\n" if ig_required else ""
             send_alert(
                 title="LDJ $1 giveaway detected!",
-                message=f"{title}\nDetected: {code}\n{code_line}Quick link: {quick_link}\nProduct page: {url}",
+                message=f"{title}\nDetected: {code}\n{code_line}{ig_line}Quick link: {quick_link}\nProduct page: {url}",
                 url=quick_link,
             )
             already_alerted_set.add(pid)
