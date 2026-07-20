@@ -1,3 +1,9 @@
+- **[no match]** Saint Laurent Patent Tribtoo Heels Sz 39 -- https://ldj.com/products/saint-laurent-patent-tribtoo-heels-sz-39
+  > Certified Authentic TL
+
+- **[no match]** Saint Laurent Calfskin Tribtoo Heels Sz 39.5 -- https://ldj.com/products/saint-laurent-calfskin-tribtoo-heels-sz-39-5
+  > Certified Authentic TL
+
 - **[no match]** Celine Nano Calfskin Luggage Tote -- https://ldj.com/products/celine-nano-calfskin-luggage-tote
   > Please refer to the provided photos for a comprehensive visual of any notable wear. The exterior presents moderate loss of shape. The interior exhibits noticeable signs of wear.
 
@@ -193,14 +199,4 @@ Certified Authentic EN/BA
 - **[no match]** Hermes Chai Epsom Mini Kelly -- https://ldj.com/products/hermes-chai-epsom-mini-kelly
   > <p class="p1">Please refer to the provided photos for a comprehensive visual of any notable wear. </p>
 <p class="p1">Certified authentic SS/AI</p>
-
-- **[no match]** Chanel Mini Wallet on Chain with Pouch -- https://ldj.com/products/chanel-mini-wallet-on-chain-with-pouch
-  > <p class="p1">Please refer to the provided photos for a comprehensive visual of any notable wear. The exterior reflects some slight hardware scuffing. The interior reflects leather scratching and wear
-
-- **[no match]** Hermes Noir Epsom Verrou 21 -- https://ldj.com/products/hermes-noir-epsom-verrou-21
-  > <p>Please refer to the provided photos for a comprehensive visual of any notable wear. The exterior shows minor hardware scuffing. The interior exhibits minimal signs of wear.</p>
-<p>Strap Drop: 9" - 
-
-- **[no match]** Louis Vuitton Monogram Petite Malle -- https://ldj.com/products/louis-vuitton-monogram-petite-malle-1
-  > <p>Please refer to the provided photos for a comprehensive visual of any notable wear. The exterior presents noticeable scratching and visible hardware scuffing. The interior reflects moderate signs o
 
