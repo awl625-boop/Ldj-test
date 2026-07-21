@@ -1,50 +1,3 @@
-- **[no match]** Saint Laurent Patent Tribtoo Heels Sz 39 -- https://ldj.com/products/saint-laurent-patent-tribtoo-heels-sz-39
-  > Certified Authentic TL
-
-- **[no match]** Saint Laurent Calfskin Tribtoo Heels Sz 39.5 -- https://ldj.com/products/saint-laurent-calfskin-tribtoo-heels-sz-39-5
-  > Certified Authentic TL
-
-- **[no match]** Celine Nano Calfskin Luggage Tote -- https://ldj.com/products/celine-nano-calfskin-luggage-tote
-  > Please refer to the provided photos for a comprehensive visual of any notable wear. The exterior presents moderate loss of shape. The interior exhibits noticeable signs of wear.
-
-Strap Drop:  20"
-
-Cer
-
-- **[no match]** Chanel Multicolor PVC Round Filigree Clutch With Chain -- https://ldj.com/products/chanel-multicolor-pvc-round-filigree-clutch-with-chain
-  > Strap Drop: 23"
-
-Certified Authentic EN/LM
-
-- **[no match]** Saint Laurent Baby Floral Applique Monogram Chain Bag -- https://ldj.com/products/saint-laurent-baby-floral-applique-monogram-classic-chain-bag
-  > Please refer to the provided photos for a comprehensive visual of any notable wear. The exterior reflects faint hardware scuffing, faint corner wear, faint surface wear, and missing beads. The interio
-
-- **[no match]** Chanel Metallic Lambskin Phone Holder Wallet On Chain (WOC) -- https://ldj.com/products/chanel-metallic-lambskin-phone-holder-wallet-on-chain-woc
-  > Removable
-
-Strap Drop: 23"
-
-Certified Authentic EN/LM
-
-- **[no match]** Chanel Medium Caviar Boy Bag -- https://ldj.com/products/chanel-medium-caviar-boy-bag
-  > Please refer to the provided photos for a comprehensive visual of any notable wear. The exterior reflects substantial corner wear. The interior reflects noticeable marks and moderate scuffing.
-
-Strap 
-
-- **[no match]** Chanel Medium Metallic Lambskin Velvet Quilted Flap Bag -- https://ldj.com/products/chanel-medium-metallic-lambskin-velvet-quilted-flap-bag
-  > Please refer to the provided photos for a comprehensive visual of any notable wear. The exterior reflects minor corner wear, faint hardware scuffing, and faint marks. The interior exhibits faint marks
-
-- **[no match]** Celine Medium Python Phantom Tote -- https://ldj.com/products/celine-medium-python-phantom-tote
-  > Celine Medium Python Phantom Tote - 1AH474
-
-- **[no match]** Dior Small Smooth Calfskin Studded Diorama Flap Bag -- https://ldj.com/products/dior-small-smooth-calfskin-studded-diorama-flap-bag
-  > Certified Authentic EN/LM
-
-- **[no match]** Wallet On Chain (WOC) Base Shaper -- https://ldj.com/products/wallet-on-chain-woc-base-shaper
-  > Our product will save your Wallet on Chain's from slouching! The uniquely designed insert will hold your WOC's shape so you can not only utilize the space, but keep it in pristine condition!
-
-Color: B
-
 - **[no match]** Gucci Medium GG Canvas Pelham Tote -- https://ldj.com/products/gucci-medium-gg-canvas-pelham-tote
   > Certified Authentic TL
 
@@ -200,3 +153,50 @@ Certified Authentic EN/BA
   > <p class="p1">Please refer to the provided photos for a comprehensive visual of any notable wear. </p>
 <p class="p1">Certified authentic SS/AI</p>
 
+- **[no match]** Chanel Mini Wallet on Chain with Pouch -- https://ldj.com/products/chanel-mini-wallet-on-chain-with-pouch
+  > <p class="p1">Please refer to the provided photos for a comprehensive visual of any notable wear. The exterior reflects some slight hardware scuffing. The interior reflects leather scratching and wear
+
+- **[no match]** Hermes Noir Epsom Verrou 21 -- https://ldj.com/products/hermes-noir-epsom-verrou-21
+  > <p>Please refer to the provided photos for a comprehensive visual of any notable wear. The exterior shows minor hardware scuffing. The interior exhibits minimal signs of wear.</p>
+<p>Strap Drop: 9" - 
+
+- **[no match]** Louis Vuitton Monogram Petite Malle -- https://ldj.com/products/louis-vuitton-monogram-petite-malle-1
+  > <p>Please refer to the provided photos for a comprehensive visual of any notable wear. The exterior presents noticeable scratching and visible hardware scuffing. The interior reflects moderate signs o
+
+- **[no match]** Hermes Rose Ete Swift Birkin 25 -- https://ldj.com/products/hermes-rose-ete-swift-birkin-25
+  > <p>Please refer to the provided photos for a comprehensive visual of any notable wear. The exterior presents minor corner wear and minor hardware scuffing. The interior exhibits minimal signs of wear.
+
+- **[no match]** Hermes Noir Epsom Constance 18 -- https://ldj.com/products/hermes-noir-epsom-constance-18
+  > <table dir="ltr" border="1" cellspacing="0" cellpadding="0" data-sheets-root="1" data-sheets-baot="1">
+<colgroup>
+<col width="283">
+<col width="281">
+<col width="284">
+<col width="287">
+<col width="28
+
+- **[no match]** Hermes Noir Togo Perspective Cavaliere 21 -- https://ldj.com/products/hermes-noir-togo-perspective-cavaliere-21
+  > <table dir="ltr" border="1" cellspacing="0" cellpadding="0" data-sheets-root="1" data-sheets-baot="1">
+<colgroup>
+<col width="283">
+<col width="281">
+<col width="284">
+<col width="287">
+<col width="28
+
+- **[no match]** Chanel Small Lambskin Classic Double Flap Bag -- https://ldj.com/products/chanel-small-lambskin-classic-double-flap-bag
+  > <p>Please refer to the provided photos for a comprehensive visual of any notable wear.</p>
+<p>Strap Drop: 9-17"</p>
+<p>Certified Authentic SS/MC</p>
+
+- **[no match]** Chanel Medium Caviar Filigree Flap Bag -- https://ldj.com/products/chanel-medium-caviar-filigree-flap-bag
+  > Please refer to the provided photos for a comprehensive visual of any notable wear. The exterior shows slight surface and corner wear.
+
+Strap Drop: 23"
+
+Certified Authentic: SS/AI
+
+- **[no match]** Chanel Medium Tweed Splatter Paint Classic Double Flap Bag -- https://ldj.com/products/chanel-medium-tweed-splatter-paint-classic-double-flap-bag
+  > Please refer to the provided photos for a comprehensive visual of any notable wear.
+
+Strap Drop: 9" - 17"
