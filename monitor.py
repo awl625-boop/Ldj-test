@@ -16,6 +16,8 @@ PAGE_SIZE = 250
 STATE_FILE = Path(__file__).parent / "state.json"
 CHANGELOG_FILE = Path(__file__).parent / "changelog.md"
 MAX_CHANGELOG_ENTRIES = 200
+MAX_NUDGE_BURST = 15  # more photo-changes than this in one run = likely a
+                       # bulk reshoot/restock, not individual giveaways
 
 NTFY_TOPIC = "ldj-watch-9dc7a477"
 
@@ -147,6 +149,14 @@ def get_main_image_url(product: dict):
     return None
 
 
+def get_image_signature(product: dict):
+    """Fingerprint of a listing's current photo set (just the image IDs).
+    Used to detect an actual photo change, as opposed to any other edit
+    (price tweak, typo fix, restock) that also bumps updated_at."""
+    images = product.get("images", [])
+    return sorted(str(img.get("id", img.get("src", ""))) for img in images)
+
+
 def load_state() -> dict:
     if STATE_FILE.exists():
         return json.loads(STATE_FILE.read_text())
@@ -157,8 +167,9 @@ def save_state(state: dict) -> None:
     STATE_FILE.write_text(json.dumps(state, indent=2))
 
 
-def log_change(title: str, url: str, tag: str, snippet: str) -> None:
-    entry = f"- **[{tag}]** {title} -- {url}\n  > {snippet[:200]}\n"
+def log_change(title: str, url: str, tag: str, snippet: str, created_at: str = "") -> None:
+    created_line = f" (listed: {created_at})" if created_at else " (listed: unknown)"
+    entry = f"- **[{tag}]** {title}{created_line} -- {url}\n  > {snippet[:200]}\n"
     existing = CHANGELOG_FILE.read_text().splitlines() if CHANGELOG_FILE.exists() else []
     lines = [entry] + existing
     trimmed = "\n".join(lines[:MAX_CHANGELOG_ENTRIES])
@@ -186,28 +197,43 @@ def send_alert(title: str, message: str, url: str, image_url=None) -> None:
         print(f"ntfy push failed: {e}", file=sys.stderr)
 
 
-def send_nudge(title: str, message: str, url: str, image_url=None) -> None:
-    """Lower-priority nudge for a listing that changed but had no text
-    match -- covers the case where a giveaway code/price is hidden inside
-    a promo image instead of the description text."""
+def send_nudge_digest(nudge_list: list) -> None:
+    """Send ONE combined notification for all photo-changed, no-text-match
+    listings this run, instead of one push per listing. If the burst is
+    large, it's more likely a bulk reshoot/restock than several
+    simultaneous giveaways, so we suppress the itemized list and just
+    flag the count -- full detail still lands in changelog.md either way."""
+    if not nudge_list:
+        return
+    count = len(nudge_list)
+
+    if count > MAX_NUDGE_BURST:
+        body = (
+            f"{count} listings had new photos in this run -- likely a bulk "
+            f"reshoot or restock rather than individual giveaways, so not "
+            f"listing them all here. Full list is in changelog.md if you "
+            f"want to check."
+        )
+        title = f"LDJ: {count} listings changed photos (bulk update, not itemized)"
+    else:
+        lines = [f"- {t}\n  {u}" for t, u in nudge_list]
+        body = "\n".join(lines)
+        title = f"LDJ: {count} listing(s) got new photos, no text match"
+
     try:
-        headers = {
-            "Title": title,
-            "Click": url,
-            "Priority": "default",
-            "Tags": "eyes",
-        }
-        if image_url:
-            headers["Attach"] = image_url
         req = urllib.request.Request(
             f"https://ntfy.sh/{NTFY_TOPIC}",
-            data=message.encode("utf-8"),
-            headers=headers,
+            data=body.encode("utf-8"),
+            headers={
+                "Title": title,
+                "Priority": "default",
+                "Tags": "eyes",
+            },
             method="POST",
         )
         urllib.request.urlopen(req, timeout=10)
     except Exception as e:
-        print(f"ntfy nudge push failed: {e}", file=sys.stderr)
+        print(f"ntfy nudge digest push failed: {e}", file=sys.stderr)
 
 
 def main() -> None:
@@ -217,7 +243,9 @@ def main() -> None:
     already_alerted_set = set(already_alerted)
     already_nudged = state.get("already_nudged", [])
     already_nudged_set = set(already_nudged)
+    seen_image_sig = state.get("image_sig", {})
     new_seen_updated_at = dict(seen_updated_at)
+    new_seen_image_sig = dict(seen_image_sig)
 
     print("Fetching full catalog...")
     products = fetch_all_products()
@@ -230,7 +258,9 @@ def main() -> None:
     for p in products:
         pid = str(p["id"])
         updated_at = p.get("updated_at", "")
+        image_sig = get_image_signature(p)
         new_seen_updated_at[pid] = updated_at
+        new_seen_image_sig[pid] = image_sig
 
         if first_run:
             continue
@@ -248,20 +278,30 @@ def main() -> None:
         title = p.get("title", "Unknown product")
         quick_link = build_quick_link(p, code_token)
         image_url = get_main_image_url(p)
+        images_changed = seen_image_sig.get(pid, image_sig) != image_sig
+        created_at = p.get("created_at", "")
+        is_existing_listing = pid in seen_updated_at  # seen in a prior run
 
         if signal:
-            log_change(title, url, "MATCH", description or "(empty)")
+            log_change(title, url, "MATCH", description or "(empty)", created_at)
         elif fuzzy:
-            log_change(title, url, "fuzzy", f"matched '{fuzzy}' -- {description[:150] or '(empty)'}")
+            log_change(title, url, "fuzzy", f"matched '{fuzzy}' -- {description[:150] or '(empty)'}", created_at)
+        elif images_changed and is_existing_listing:
+            # Photos changed on a listing we'd already seen before (not a
+            # brand-new listing) -- this is the specific, rarer case worth
+            # flagging: an existing bag got its photos edited after the
+            # fact, e.g. a promo graphic added post-publish.
+            log_change(title, url, "photo-edit on existing listing", description or "(empty)", created_at)
         else:
-            log_change(title, url, "no match", description or "(empty)")
+            log_change(title, url, "no match", description or "(empty)", created_at)
 
         if signal and pid not in already_alerted_set:
             hits.append((pid, title, signal, url, quick_link, code_token, image_url))
-        elif not signal and pid not in already_nudged_set:
-            # Changed listing, no text signal -- nudge in case the code/price
-            # is hidden inside a promo image instead of the description.
-            nudges.append((pid, title, url, image_url))
+        elif not signal and images_changed and is_existing_listing and pid not in already_nudged_set:
+            # Only nudge when the PHOTO SET actually changed on a listing
+            # we'd already seen before -- not a brand-new listing's first
+            # photos (that's just normal daily inventory, not a re-edit).
+            nudges.append((pid, title, url))
 
     if first_run:
         print(f"First run: recorded baseline for {len(products)} products. No alerts sent.")
@@ -277,21 +317,18 @@ def main() -> None:
             )
             already_alerted_set.add(pid)
 
-        for pid, title, url, image_url in nudges:
-            print(f"NUDGE: {title} -- {url}")
-            send_nudge(
-                title="LDJ listing changed (check manually)",
-                message=f"{title}\nNo text match -- could be a photo-only promo.\n{url}",
-                url=url,
-                image_url=image_url,
-            )
-            already_nudged_set.add(pid)
+        if nudges:
+            print(f"NUDGE DIGEST: {len(nudges)} listing(s) with new photos, no text match")
+            send_nudge_digest([(title, url) for pid, title, url in nudges])
+            for pid, title, url in nudges:
+                already_nudged_set.add(pid)
 
         if not hits and not nudges:
             print("No new matches or nudges this run.")
 
     save_state({
         "updated_at": new_seen_updated_at,
+        "image_sig": new_seen_image_sig,
         "already_alerted": sorted(already_alerted_set),
         "already_nudged": sorted(already_nudged_set),
         "last_run": time.time(),
@@ -300,13 +337,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
-
-
-    
-
-
-        
- 
-
-
