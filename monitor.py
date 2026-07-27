@@ -1,11 +1,6 @@
 #!/usr/bin/env python3
 """
 LDJ $1 handbag watcher.
-
-Scans every product listing on ldj.com for a $1 giveaway that has just been
-added to the product DESCRIPTION (not the price). Shopify stores expose all
-product data, including the full description (body_html) and a last-updated
-timestamp, via a public JSON feed at /products.json.
 """
 
 import json
@@ -28,46 +23,28 @@ CODE_PATTERNS = [
     re.compile(r"\b(?:code|coupon|promo)\s*[:\-]?\s*[A-Z0-9]{4,15}\b", re.IGNORECASE),
 ]
 
-# Match $1, $1.00, one dollar, 1 buck, penny deal, etc.
 PRICE_PATTERNS = [
-    re.compile(r"\$1(?![\d,])"),  # $1 (not $10, $100, etc.)
-    re.compile(r"\$1\.00\b"),  # $1.00
-    re.compile(r"\bone\s+dollar\b", re.IGNORECASE),  # one dollar
-    re.compile(r"\b1\s+buck\b", re.IGNORECASE),  # 1 buck
-    re.compile(r"\bpenny\s+deal\b", re.IGNORECASE),  # penny deal
-    re.compile(r"\bone\s+cent\b", re.IGNORECASE),  # one cent
+    re.compile(r"\$1(?![\d,])"),
+    re.compile(r"\$1\.00\b"),
+    re.compile(r"\bone\s+dollar\b", re.IGNORECASE),
+    re.compile(r"\b1\s+buck\b", re.IGNORECASE),
+    re.compile(r"\bpenny\s+deal\b", re.IGNORECASE),
+    re.compile(r"\bone\s+cent\b", re.IGNORECASE),
 ]
 
-# Giveaway signals - expanded with more variations
 SOFT_SIGNAL_PATTERN = re.compile(
-    r"\b(?:giveaway|snatch|win this item|tag\s*@luxedujour|free item|complimentary|"
-    r"no charge|zero cost|at no cost|on us|our treat|grab it|claim|score)\b",
+    r"\b(?:giveaway|snatch|win this item|tag\s*@luxedujour)\b",
     re.IGNORECASE
 )
 
-# Fuzzy/typo variations of common giveaway keywords
-# Catches things like: giveawya, g1veaway, sn4tch, fr33, w1n, etc.
+# Fuzzy/typo variations -- LOG-ONLY, never triggers an alert. This exists
+# in case LDJ ever starts using deliberate misspellings to dodge automated
+# detection (unconfirmed, just a precaution). Matches get written to
+# changelog.md tagged [fuzzy] so a human can review the pattern over time,
+# but never wakes up your phone on their own.
 FUZZY_SIGNAL_PATTERN = re.compile(
-    r"\b(?:g[i1]v[e3]aw[a4]y[a4]?|sn[a4]tch|w[i1]n|fr[e3][e3]|complim[e3]nt[a4]ry|"
-    r"z[e3]r[o0]\s*c[o0]st|t[a4]g\s*@|r[a4]ffl[e3]|c[o0]nt[e3]st|g[i1]v[e3]?)\b",
-    re.IGNORECASE
-)
-
-# Instagram requirement detection - catches IG, instagram, @, followers, etc.
-# Fuzzy matching for "instagram" -> "instogram", "insta", "ig", etc.
-INSTAGRAM_PATTERN = re.compile(
-    r"(?:\b(?:ig|insta|instagram|instag[r0]m)\b|"
-    r"@[\w\.]+(?:instagram)?|"
-    r"(?:public\s+)?instagram|follow.*(?:ig|insta|instagram)|"
-    r"instagram\s+(?:required|handle|account|proof)|"
-    r"must\s+have.*(?:ig|instagram))",
-    re.IGNORECASE
-)
-
-# Urgent/limited time signals (often paired with giveaways)
-URGENCY_PATTERN = re.compile(
-    r"\b(?:limited|only|first|while|last|hurry|rush|quick|fast|asap|"
-    r"before|ends|expires|gone|one only|exclusive)\b",
+    r"\b(?:g[i1]v[e3]aw[a4]y[a4]?|sn[a4]tch|fr[e3][e3]\s+(?:item|bag|handbag)|"
+    r"z[e3]r[o0]\s*c[o0]st|t[a4]g\s*@|r[a4]ffl[e3])\b",
     re.IGNORECASE
 )
 
@@ -102,37 +79,27 @@ def fetch_all_products() -> list:
 def find_code(text: str):
     if not text:
         return None
-    
-    # Check for explicit coupon codes first
     for pattern in CODE_PATTERNS:
         m = pattern.search(text)
         if m:
             return m.group(0)
-    
-    # Check for price signals ($1, one dollar, etc.)
     for pattern in PRICE_PATTERNS:
-        if pattern.search(text):
-            m = re.search(r".{0,25}" + pattern.pattern + r".{0,50}", text, re.IGNORECASE)
-            return m.group(0).strip() if m else "Price alert: $1 or less"
-    
-    # Check for giveaway signals
+        m = pattern.search(text)
+        if m:
+            snippet = re.search(r".{0,25}" + pattern.pattern + r".{0,50}", text, re.IGNORECASE)
+            return snippet.group(0).strip() if snippet else "Price alert: $1 or less"
     m = SOFT_SIGNAL_PATTERN.search(text)
     if m:
         return m.group(0)
-    
-    # Check for fuzzy/typo variations of giveaway keywords
-    m = FUZZY_SIGNAL_PATTERN.search(text)
-    if m:
-        return f"Fuzzy match: {m.group(0)}"
-    
     return None
 
 
-def check_instagram_requirement(text: str) -> bool:
-    """Check if listing requires public Instagram"""
+def find_fuzzy_signal(text: str):
+    """Log-only check -- never used for alerting, only for changelog review."""
     if not text:
-        return False
-    return bool(INSTAGRAM_PATTERN.search(text))
+        return None
+    m = FUZZY_SIGNAL_PATTERN.search(text)
+    return m.group(0) if m else None
 
 
 CODE_TOKEN_PATTERN = re.compile(
@@ -173,6 +140,13 @@ def price_is_one_dollar(product: dict) -> bool:
     return False
 
 
+def get_main_image_url(product: dict):
+    images = product.get("images", [])
+    if images:
+        return images[0].get("src")
+    return None
+
+
 def load_state() -> dict:
     if STATE_FILE.exists():
         return json.loads(STATE_FILE.read_text())
@@ -183,8 +157,7 @@ def save_state(state: dict) -> None:
     STATE_FILE.write_text(json.dumps(state, indent=2))
 
 
-def log_change(title: str, url: str, matched: bool, snippet: str) -> None:
-    tag = "MATCH" if matched else "no match"
+def log_change(title: str, url: str, tag: str, snippet: str) -> None:
     entry = f"- **[{tag}]** {title} -- {url}\n  > {snippet[:200]}\n"
     existing = CHANGELOG_FILE.read_text().splitlines() if CHANGELOG_FILE.exists() else []
     lines = [entry] + existing
@@ -192,17 +165,20 @@ def log_change(title: str, url: str, matched: bool, snippet: str) -> None:
     CHANGELOG_FILE.write_text(trimmed + "\n" if trimmed else "")
 
 
-def send_alert(title: str, message: str, url: str) -> None:
+def send_alert(title: str, message: str, url: str, image_url=None) -> None:
     try:
+        headers = {
+            "Title": title,
+            "Click": url,
+            "Priority": "urgent",
+            "Tags": "rotating_light",
+        }
+        if image_url:
+            headers["Attach"] = image_url
         req = urllib.request.Request(
             f"https://ntfy.sh/{NTFY_TOPIC}",
             data=message.encode("utf-8"),
-            headers={
-                "Title": title,
-                "Click": url,
-                "Priority": "urgent",
-                "Tags": "rotating_light",
-            },
+            headers=headers,
             method="POST",
         )
         urllib.request.urlopen(req, timeout=10)
@@ -210,11 +186,37 @@ def send_alert(title: str, message: str, url: str) -> None:
         print(f"ntfy push failed: {e}", file=sys.stderr)
 
 
+def send_nudge(title: str, message: str, url: str, image_url=None) -> None:
+    """Lower-priority nudge for a listing that changed but had no text
+    match -- covers the case where a giveaway code/price is hidden inside
+    a promo image instead of the description text."""
+    try:
+        headers = {
+            "Title": title,
+            "Click": url,
+            "Priority": "default",
+            "Tags": "eyes",
+        }
+        if image_url:
+            headers["Attach"] = image_url
+        req = urllib.request.Request(
+            f"https://ntfy.sh/{NTFY_TOPIC}",
+            data=message.encode("utf-8"),
+            headers=headers,
+            method="POST",
+        )
+        urllib.request.urlopen(req, timeout=10)
+    except Exception as e:
+        print(f"ntfy nudge push failed: {e}", file=sys.stderr)
+
+
 def main() -> None:
     state = load_state()
     seen_updated_at = state.get("updated_at", {})
     already_alerted = state.get("already_alerted", [])
     already_alerted_set = set(already_alerted)
+    already_nudged = state.get("already_nudged", [])
+    already_nudged_set = set(already_nudged)
     new_seen_updated_at = dict(seen_updated_at)
 
     print("Fetching full catalog...")
@@ -223,6 +225,7 @@ def main() -> None:
 
     first_run = len(seen_updated_at) == 0
     hits = []
+    nudges = []
 
     for p in products:
         pid = str(p["id"])
@@ -238,40 +241,72 @@ def main() -> None:
         code = find_code(description)
         code_token = extract_code_token(description)
         price_flag = price_is_one_dollar(p)
-        ig_required = check_instagram_requirement(description)
         signal = code or ("price listed at $1" if price_flag else None)
+        fuzzy = find_fuzzy_signal(description)
         handle = p.get("handle", "")
         url = f"{STORE}/products/{handle}"
         title = p.get("title", "Unknown product")
         quick_link = build_quick_link(p, code_token)
+        image_url = get_main_image_url(p)
 
-        log_change(title, url, matched=bool(signal), snippet=description or "(empty)")
+        if signal:
+            log_change(title, url, "MATCH", description or "(empty)")
+        elif fuzzy:
+            log_change(title, url, "fuzzy", f"matched '{fuzzy}' -- {description[:150] or '(empty)'}")
+        else:
+            log_change(title, url, "no match", description or "(empty)")
 
         if signal and pid not in already_alerted_set:
-            hits.append((pid, title, signal, url, quick_link, code_token, ig_required))
+            hits.append((pid, title, signal, url, quick_link, code_token, image_url))
+        elif not signal and pid not in already_nudged_set:
+            # Changed listing, no text signal -- nudge in case the code/price
+            # is hidden inside a promo image instead of the description.
+            nudges.append((pid, title, url, image_url))
 
     if first_run:
         print(f"First run: recorded baseline for {len(products)} products. No alerts sent.")
-    elif hits:
-        for pid, title, code, url, quick_link, code_token, ig_required in hits:
+    else:
+        for pid, title, code, url, quick_link, code_token, image_url in hits:
             print(f"MATCH: {title} -- {code} -- {url}")
             code_line = f"Code: {code_token}\n" if code_token else ""
-            ig_line = "⚠️ IG REQUIRED\n" if ig_required else ""
             send_alert(
                 title="LDJ $1 giveaway detected!",
-                message=f"{title}\nDetected: {code}\n{code_line}{ig_line}Quick link: {quick_link}\nProduct page: {url}",
+                message=f"{title}\nDetected: {code}\n{code_line}Quick link: {quick_link}\nProduct page: {url}",
                 url=quick_link,
+                image_url=image_url,
             )
             already_alerted_set.add(pid)
-    else:
-        print("No new matches this run.")
+
+        for pid, title, url, image_url in nudges:
+            print(f"NUDGE: {title} -- {url}")
+            send_nudge(
+                title="LDJ listing changed (check manually)",
+                message=f"{title}\nNo text match -- could be a photo-only promo.\n{url}",
+                url=url,
+                image_url=image_url,
+            )
+            already_nudged_set.add(pid)
+
+        if not hits and not nudges:
+            print("No new matches or nudges this run.")
 
     save_state({
         "updated_at": new_seen_updated_at,
         "already_alerted": sorted(already_alerted_set),
+        "already_nudged": sorted(already_nudged_set),
         "last_run": time.time(),
     })
 
 
 if __name__ == "__main__":
     main()
+
+
+
+    
+
+
+        
+ 
+
+
