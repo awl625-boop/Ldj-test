@@ -10,7 +10,7 @@ permissions:
 
 concurrency:
   group: ldj-watcher
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   watch:
@@ -45,5 +45,3 @@ jobs:
             echo "Failed to push after 5 attempts"
             exit 1
           )
-
-     
