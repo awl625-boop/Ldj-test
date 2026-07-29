@@ -54,13 +54,6 @@ Color: B
 - **[no match]** Prada Flats Sz 38 (listed: 2026-05-18T03:00:12-06:00) -- https://ldj.com/products/prada-flats-sz-38
   > Certified Authentic TL
 
-- **[no match]** Chanel Yellow Lambskin Wallet On Chain (WOC) (listed: 2026-05-18T03:02:29-06:00) -- https://ldj.com/products/chanel-yellow-lambskin-wallet-on-chain-woc
-  > Strap Drop: 25"
-
-Condition: Corner/edge wear, leather dents, visible color transfer, wear on strap
-
-Certified Authentic EN/ZC
-
 - **[no match]** Chloe Medium Suede Faye Bag (listed: 2026-05-18T03:02:40-06:00) -- https://ldj.com/products/chloe-medium-suede-faye-bag
   > Chloe Medium Suede Faye Bag - PZAC54
 
@@ -199,4 +192,11 @@ Certified Authentic EN/BA
 - **[no match]** Hermes Chai Epsom Mini Kelly (listed: 2026-06-03T13:19:03-06:00) -- https://ldj.com/products/hermes-chai-epsom-mini-kelly
   > <p class="p1">Please refer to the provided photos for a comprehensive visual of any notable wear. </p>
 <p class="p1">Certified authentic SS/AI</p>
+
+- **[no match]** Chanel Mini Wallet on Chain with Pouch (listed: 2026-06-03T13:41:10-06:00) -- https://ldj.com/products/chanel-mini-wallet-on-chain-with-pouch
+  > <p class="p1">Please refer to the provided photos for a comprehensive visual of any notable wear. The exterior reflects some slight hardware scuffing. The interior reflects leather scratching and wear
+
+- **[no match]** Hermes Noir Epsom Verrou 21 (listed: 2026-06-03T14:52:00-06:00) -- https://ldj.com/products/hermes-noir-epsom-verrou-21
+  > <p>Please refer to the provided photos for a comprehensive visual of any notable wear. The exterior shows minor hardware scuffing. The interior exhibits minimal signs of wear.</p>
+<p>Strap Drop: 9" - 
 
