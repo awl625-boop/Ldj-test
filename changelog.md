@@ -84,6 +84,9 @@ St
 
 Strap Drop: 25"Certified authentic EN/AI
 
+- **[ID/serial anomaly]** Hermes Orange Swift Jige Elan 29 (listed: 2026-05-18T03:28:00-06:00) -- https://ldj.com/products/hermes-orange-swift-jige-elan-29
+  > Serial code has unusual letters: T-2015
+
 - **[no match]** Hermes Orange Swift Jige Elan 29 (listed: 2026-05-18T03:28:00-06:00) -- https://ldj.com/products/hermes-orange-swift-jige-elan-29
   > Certified Authentic EN/KKD
 
@@ -92,6 +95,9 @@ Strap Drop: 25"Certified authentic EN/AI
 
 - **[no match]** Chanel Vintage Large Caviar Vanity Cosmetics Case Shoulder Bag (listed: 2026-05-18T03:28:37-06:00) -- https://ldj.com/products/chanel-vintage-large-caviar-vanity-cosmetics-case-shoulder-bag
   > Please refer to the provided photos for a comprehensive visual of any notable wear. The exterior presents faint hardware scuffing, faint corner wear, and a deep scratch on the handle. The interior exh
+
+- **[ID/serial anomaly]** Louis Vuitton Monogram Petite Malle (listed: 2026-05-21T15:29:27-06:00) -- https://ldj.com/products/louis-vuitton-monogram-petite-malle
+  > Serial code has unusual letters: FL4106
 
 - **[no match]** Louis Vuitton Monogram Petite Malle (listed: 2026-05-21T15:29:27-06:00) -- https://ldj.com/products/louis-vuitton-monogram-petite-malle
   > <p>Please refer to the provided photos for a comprehensive visual of any notable wear. The exterior reflects moderate hardware scuffing and visible corner wear. The interior reflects noticeable signs 
@@ -105,6 +111,9 @@ Strap Drop: 25"Certified authentic EN/AI
 <col width="287">
 <col width="28
 
+- **[ID/serial anomaly]** Christian Dior Medium 30 Montaigne East-West Chain Bag (listed: 2026-05-22T16:28:09-06:00) -- https://ldj.com/products/christian-dior-medium-30-montaigne-east-west-chain-bag
+  > Serial code has unusual letters: 89-MA-1212
+
 - **[no match]** Christian Dior Medium 30 Montaigne East-West Chain Bag (listed: 2026-05-22T16:28:09-06:00) -- https://ldj.com/products/christian-dior-medium-30-montaigne-east-west-chain-bag
   > <table dir="ltr" border="1" cellspacing="0" cellpadding="0" data-sheets-root="1" data-sheets-baot="1">
 <colgroup>
@@ -113,6 +122,9 @@ Strap Drop: 25"Certified authentic EN/AI
 <col width="284">
 <col width="287">
 <col width="28
+
+- **[ID/serial anomaly]** Saint Laurent Small Crocodile Embossed Leather Kate Tassle Bag (listed: 2026-06-01T09:58:37-06:00) -- https://ldj.com/products/saint-laurent-small-crocodile-embossed-leather-kate-tassle-bag
+  > Serial code has unusual letters: TCT474368-1121
 
 - **[no match]** Saint Laurent Small Crocodile Embossed Leather Kate Tassle Bag (listed: 2026-06-01T09:58:37-06:00) -- https://ldj.com/products/saint-laurent-small-crocodile-embossed-leather-kate-tassle-bag
   > <p>Please refer to the provided photos for a comprehensive visual of any notable wear. The exterior reflects minor hardware scuffing. </p>
@@ -128,15 +140,24 @@ Strap Drop: 25"Certified authentic EN/AI
   > <p>Please refer to the provided photos for a comprehensive visual of any notable wear. </p>
 <p>Color: Vert Verone</p>
 
+- **[ID/serial anomaly]** Chanel Mini Caviar Preppy Coco Bowling Bag (listed: 2026-06-02T14:29:06-06:00) -- https://ldj.com/products/chanel-mini-caviar-preppy-coco-bowling-bag
+  > Serial code has unusual letters: UU68A7
+
 - **[no match]** Chanel Mini Caviar Preppy Coco Bowling Bag (listed: 2026-06-02T14:29:06-06:00) -- https://ldj.com/products/chanel-mini-caviar-preppy-coco-bowling-bag
   > <p>Please refer to the provided photos for a comprehensive visual of any notable wear. The exterior presents minor hardware scuffing.</p>
 <p>Certified Authentic EN/KKD</p>
+
+- **[ID/serial anomaly]** Bottega Veneta Small Intrecciato East-West Andiamo (listed: 2026-06-02T14:39:48-06:00) -- https://ldj.com/products/bottega-veneta-small-intrecciato-east-west-andiamo
+  > Serial code has unusual letters: A008XXXX
 
 - **[no match]** Bottega Veneta Small Intrecciato East-West Andiamo (listed: 2026-06-02T14:39:48-06:00) -- https://ldj.com/products/bottega-veneta-small-intrecciato-east-west-andiamo
   > <p class="p1">Please refer to the provided photos for a comprehensive visual of any notable wear.</p>
 <p class="p1">Strap Drop: 21.8"</p>
 <p class="p1">Handle Drop: 3.1"</p>
 <p class="p1">Certified Au
+
+- **[ID/serial anomaly]** Bottega Veneta Mini Intrecciato Nappa Jodie (listed: 2026-06-02T15:12:48-06:00) -- https://ldj.com/products/bottega-veneta-mini-intrecciato-nappa-jodie-1
+  > Serial code has unusual letters: B099XXXX
 
 - **[no match]** Bottega Veneta Mini Intrecciato Nappa Jodie (listed: 2026-06-02T15:12:48-06:00) -- https://ldj.com/products/bottega-veneta-mini-intrecciato-nappa-jodie-1
   > <p class="p1">Please refer to the provided photos for a comprehensive visual of any notable wear.</p>
@@ -145,10 +166,16 @@ Strap Drop: 25"Certified authentic EN/AI
 - **[no match]** Chanel Aged Calfskin 2.55 Reissue Flap Bag (listed: 2026-06-02T16:58:06-06:00) -- https://ldj.com/products/chanel-aged-calfskin-2-55-reissue-flap-bag
   > <p class="p1">Please refer to the provided photos for a comprehensive visual of any notable wear. The exterior reflects some hardware scuffing. The interior reflects some marks and staining and slight
 
+- **[ID/serial anomaly]** Chanel Mini Sequin Classic Single Flap Bag (listed: 2026-06-02T17:15:01-06:00) -- https://ldj.com/products/chanel-mini-sequin-classic-single-flap-bag
+  > Serial code has unusual letters: Microchip
+
 - **[no match]** Chanel Mini Sequin Classic Single Flap Bag (listed: 2026-06-02T17:15:01-06:00) -- https://ldj.com/products/chanel-mini-sequin-classic-single-flap-bag
   > <p>Please refer to the provided photos for a comprehensive visual of any notable wear. </p>
 <p>Strap Drop: 12-22"</p>
 <p>Certified Authentic EN/MC </p>
+
+- **[ID/serial anomaly]** Chanel Small Lambskin Single Flap Bag (listed: 2026-06-02T17:41:09-06:00) -- https://ldj.com/products/chanel-small-lambskin-single-flap-bag
+  > Serial code has unusual letters: Micro
 
 - **[no match]** Chanel Small Lambskin Single Flap Bag (listed: 2026-06-02T17:41:09-06:00) -- https://ldj.com/products/chanel-small-lambskin-single-flap-bag
   > <table dir="ltr" border="1" cellspacing="0" cellpadding="0" data-sheets-root="1" data-sheets-baot="1">
@@ -159,6 +186,9 @@ Strap Drop: 25"Certified authentic EN/AI
 <col width="287">
 <col width="28
 
+- **[ID/serial anomaly]** Chanel Mini Iridescent Caviar My Perfect Flap Bag (listed: 2026-06-02T17:45:56-06:00) -- https://ldj.com/products/chanel-mini-caviar-flap-bag
+  > Serial code has unusual letters: Microchip
+
 - **[no match]** Chanel Mini Iridescent Caviar My Perfect Flap Bag (listed: 2026-06-02T17:45:56-06:00) -- https://ldj.com/products/chanel-mini-caviar-flap-bag
   > <table dir="ltr" border="1" cellspacing="0" cellpadding="0" data-sheets-root="1" data-sheets-baot="1">
 <colgroup>
@@ -168,35 +198,5 @@ Strap Drop: 25"Certified authentic EN/AI
 <col width="287">
 <col width="28
 
-- **[no match]** Chanel Shiny Calfskin 22 Backpack (listed: 2026-06-02T17:48:11-06:00) -- https://ldj.com/products/chanel-shiny-calfskin-22-backpack
-  > <p class="p1">Please refer to the provided photos for a comprehensive visual of any notable wear.</p>
-<p class="p1">Strap Drop: 12"<br>Handle Drop: 3"</p>
-
-- **[no match]** Chanel CC Round Crystal Earrings (listed: 2026-06-03T12:01:06-06:00) -- https://ldj.com/products/chanel-cc-round-crystal-earrings
-  > Please refer to the provided photos for a comprehensive visual of any notable wear. The exterior presents minor hardware scuffing. There are some missing crystals on one earring.
-
-Certified Authentic 
-
-- **[ID/serial anomaly]** Hermes Vintage Noir Box Calf Kelly Sport MM (listed: 2026-06-03T12:01:34-06:00) -- https://ldj.com/products/hermes-vintage-noir-box-calf-kelly-sport-mm
-  > Serial code has unusual letters: C
-
-- **[no match]** Hermes Vintage Noir Box Calf Kelly Sport MM (listed: 2026-06-03T12:01:34-06:00) -- https://ldj.com/products/hermes-vintage-noir-box-calf-kelly-sport-mm
-  > Please refer to the provided photos for a comprehensive visual of any notable wear. The exterior shows minor scratching and slight hardware scuffing. The interior reflects moderate scuffing.
-
-Strap Dr
-
-- **[ID/serial anomaly]** Louis Vuitton Monogram Clutch (listed: 2026-06-03T12:03:19-06:00) -- https://ldj.com/products/louis-vuitton-monogram-clutch
+- **[ID/serial anomaly]** Chanel Shiny Calfskin 22 Backpack (listed: 2026-06-02T17:48:11-06:00) -- https://ldj.com/products/chanel-shiny-calfskin-22-backpack
   > Serial code has unusual letters: Microchip
-
-- **[no match]** Louis Vuitton Monogram Clutch (listed: 2026-06-03T12:03:19-06:00) -- https://ldj.com/products/louis-vuitton-monogram-clutch
-  > Please refer to the provided photos for a comprehensive visual of any notable wear. The exterior reflects faint hardware scuffing.
-
-Strap Drop: 9"
-
-Certified Authentic EN/BA
-
-- **[ID/serial anomaly]** Hermes Chai Epsom Mini Kelly (listed: 2026-06-03T13:19:03-06:00) -- https://ldj.com/products/hermes-chai-epsom-mini-kelly
-  > Serial code has unusual letters: U-2022
-
-- **[no match]** Hermes Chai Epsom Mini Kelly (listed: 2026-06-03T13:19:03-06:00) -- https://ldj.com/products/hermes-chai-epsom-mini-kelly
-  > <p class="p1">Please refer to the provided photos for a comprehensive visual of any notable wear. </p>
