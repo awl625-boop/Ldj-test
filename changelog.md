@@ -4,9 +4,6 @@
 - **[no match]** Saint Laurent Calfskin Tribtoo Heels Sz 39.5 (listed: 2026-05-18T02:04:31-06:00) -- https://ldj.com/products/saint-laurent-calfskin-tribtoo-heels-sz-39-5
   > Certified Authentic TL
 
-- **[ID/serial anomaly]** Celine Nano Calfskin Luggage Tote (listed: 2026-05-18T02:05:46-06:00) -- https://ldj.com/products/celine-nano-calfskin-luggage-tote
-  > Serial code has unusual letters: F-AT-0193
-
 - **[no match]** Celine Nano Calfskin Luggage Tote (listed: 2026-05-18T02:05:46-06:00) -- https://ldj.com/products/celine-nano-calfskin-luggage-tote
   > Please refer to the provided photos for a comprehensive visual of any notable wear. The exterior presents moderate loss of shape. The interior exhibits noticeable signs of wear.
 
@@ -18,9 +15,6 @@ Cer
   > Strap Drop: 23"
 
 Certified Authentic EN/LM
-
-- **[ID/serial anomaly]** Saint Laurent Baby Floral Applique Monogram Chain Bag (listed: 2026-05-18T02:15:53-06:00) -- https://ldj.com/products/saint-laurent-baby-floral-applique-monogram-classic-chain-bag
-  > Serial code has unusual letters: LND399289-0115
 
 - **[no match]** Saint Laurent Baby Floral Applique Monogram Chain Bag (listed: 2026-05-18T02:15:53-06:00) -- https://ldj.com/products/saint-laurent-baby-floral-applique-monogram-classic-chain-bag
   > Please refer to the provided photos for a comprehensive visual of any notable wear. The exterior reflects faint hardware scuffing, faint corner wear, faint surface wear, and missing beads. The interio
@@ -42,9 +36,6 @@ Strap
 
 - **[no match]** Celine Medium Python Phantom Tote (listed: 2026-05-18T02:21:59-06:00) -- https://ldj.com/products/celine-medium-python-phantom-tote
   > Celine Medium Python Phantom Tote - 1AH474
-
-- **[ID/serial anomaly]** Dior Small Smooth Calfskin Studded Diorama Flap Bag (listed: 2026-05-18T02:33:06-06:00) -- https://ldj.com/products/dior-small-smooth-calfskin-studded-diorama-flap-bag
-  > Serial code has unusual letters: 13BO0148
 
 - **[no match]** Dior Small Smooth Calfskin Studded Diorama Flap Bag (listed: 2026-05-18T02:33:06-06:00) -- https://ldj.com/products/dior-small-smooth-calfskin-studded-diorama-flap-bag
   > Certified Authentic EN/LM
@@ -200,3 +191,12 @@ Certified Authentic EN/BA
 
 - **[no match]** Hermes Chai Epsom Mini Kelly (listed: 2026-06-03T13:19:03-06:00) -- https://ldj.com/products/hermes-chai-epsom-mini-kelly
   > <p class="p1">Please refer to the provided photos for a comprehensive visual of any notable wear. </p>
+<p class="p1">Certified authentic SS/AI</p>
+
+- **[no match]** Chanel Mini Wallet on Chain with Pouch (listed: 2026-06-03T13:41:10-06:00) -- https://ldj.com/products/chanel-mini-wallet-on-chain-with-pouch
+  > <p class="p1">Please refer to the provided photos for a comprehensive visual of any notable wear. The exterior reflects some slight hardware scuffing. The interior reflects leather scratching and wear
+
+- **[no match]** Hermes Noir Epsom Verrou 21 (listed: 2026-06-03T14:52:00-06:00) -- https://ldj.com/products/hermes-noir-epsom-verrou-21
+  > <p>Please refer to the provided photos for a comprehensive visual of any notable wear. The exterior shows minor hardware scuffing. The interior exhibits minimal signs of wear.</p>
+<p>Strap Drop: 9" - 
+
