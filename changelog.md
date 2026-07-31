@@ -118,7 +118,7 @@ Strap Drop: 25"Certified authentic EN/AI
   > <p>Please refer to the provided photos for a comprehensive visual of any notable wear. The exterior reflects minor hardware scuffing. </p>
 <p>Strap Drop: 12" - 20"<br>Certified Authentic EN/BA</p>
 
-- **[no match]** Chanel Mini Patent Rectangular Classic Flap Bag (listed: 2026-06-01T15:08:22-06:00) -- https://ldj.com/products/chanel-mini-patent-rectangular-classic-flap-bag-1
+- **[photo-edit on existing listing]** Chanel Mini Patent Rectangular Classic Flap Bag (listed: 2026-06-01T15:08:22-06:00) -- https://ldj.com/products/chanel-mini-patent-rectangular-classic-flap-bag-1
   > <p>Please refer to the provided photos for a comprehensive visual of any notable wear. The exterior shows noticeable colour transfer, minor scratching, and slight hardware scuffing. The interior displ
 
 - **[no match]** Chanel Large Canvas Deauville Tote (listed: 2026-06-01T16:44:53-06:00) -- https://ldj.com/products/chanel-large-canvas-deauville-tote
