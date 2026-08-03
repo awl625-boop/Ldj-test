@@ -73,9 +73,6 @@ St
 - **[no match]** Deodorizer (listed: 2026-05-18T03:25:40-06:00) -- https://ldj.com/products/deodorizer-1
   > Remove, don’t mask, with Luxe Bag Spa’s Deodorizer! Remove and or minimize smells of musk, smoke, perfumes, along with other mild unwanted or unpleasant odours, our Luxe Bag Spa deodorizer is safe on 
 
-- **[no match]** Chanel Vintage Large Aged Calfskin Perfect Day Tote (listed: 2026-05-18T03:27:18-06:00) -- https://ldj.com/products/chanel-vintage-large-aged-calfskin-perfect-day-tote
-  > Please refer to the provided photos for a comprehensive visual of any notable wear. The exterior shows substantial corner wear, moderate scratching, handle darkening, and minor hardware scuffing. The 
-
 - **[no match]** Chanel Caviar Reissue 2.55 Flap Bag 226 (listed: 2026-05-18T03:27:54-06:00) -- https://ldj.com/products/chanel-caviar-reissue-2-55-flap-bag-226
   > Please refer to the provided photos for a comprehensive visual of any notable wear. The exterior shows moderate loss of shape, substantial corner/edge wear, and noticeable hardware fading. The interio
 
@@ -199,4 +196,7 @@ Certified Authentic EN/BA
 - **[no match]** Hermes Noir Epsom Verrou 21 (listed: 2026-06-03T14:52:00-06:00) -- https://ldj.com/products/hermes-noir-epsom-verrou-21
   > <p>Please refer to the provided photos for a comprehensive visual of any notable wear. The exterior shows minor hardware scuffing. The interior exhibits minimal signs of wear.</p>
 <p>Strap Drop: 9" - 
+
+- **[no match]** Louis Vuitton Monogram Petite Malle (listed: 2026-06-03T14:52:02-06:00) -- https://ldj.com/products/louis-vuitton-monogram-petite-malle-1
+  > <p>Please refer to the provided photos for a comprehensive visual of any notable wear. The exterior presents noticeable scratching and visible hardware scuffing. The interior reflects moderate signs o
 
