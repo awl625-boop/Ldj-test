@@ -32,7 +32,7 @@ Certified Authentic EN/LM
 Strap 
 
 - **[photo-edit on existing listing]** Chanel Medium Metallic Lambskin Velvet Quilted Flap Bag (listed: 2026-05-18T02:20:46-06:00) -- https://ldj.com/products/chanel-medium-metallic-lambskin-velvet-quilted-flap-bag
-  > Please refer to the provided photos for a comprehensive visual of any notable wear. The exterior reflects minor corner wear, faint hardware scuffing, and faint marks. The interior exhibits faint marks
+  > <p>Please refer to the provided photos for a comprehensive visual of any notable wear. The exterior reflects minor corner wear, faint hardware scuffing, and faint marks. The interior exhibits faint ma
 
 - **[no match]** Celine Medium Python Phantom Tote (listed: 2026-05-18T02:21:59-06:00) -- https://ldj.com/products/celine-medium-python-phantom-tote
   > Celine Medium Python Phantom Tote - 1AH474
