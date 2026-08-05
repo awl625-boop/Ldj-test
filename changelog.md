@@ -147,7 +147,7 @@ Strap Drop: 25"Certified authentic EN/AI
 <p>Strap Drop: 12-22"</p>
 <p>Certified Authentic EN/MC </p>
 
-- **[photo-edit on existing listing]** Chanel Small Lambskin Single Flap Bag (listed: 2026-06-02T17:41:09-06:00) -- https://ldj.com/products/chanel-small-lambskin-single-flap-bag
+- **[no match]** Chanel Small Lambskin Single Flap Bag (listed: 2026-06-02T17:41:09-06:00) -- https://ldj.com/products/chanel-small-lambskin-single-flap-bag
   > <table dir="ltr" border="1" cellspacing="0" cellpadding="0" data-sheets-root="1" data-sheets-baot="1">
 <colgroup>
 <col width="283">
