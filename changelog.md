@@ -190,13 +190,13 @@ Certified Authentic EN/BA
   > <p class="p1">Please refer to the provided photos for a comprehensive visual of any notable wear. </p>
 <p class="p1">Certified authentic SS/AI</p>
 
-- **[no match]** Chanel Mini Wallet on Chain with Pouch (listed: 2026-06-03T13:41:10-06:00) -- https://ldj.com/products/chanel-mini-wallet-on-chain-with-pouch
-  > <p class="p1">Please refer to the provided photos for a comprehensive visual of any notable wear. The exterior reflects some slight hardware scuffing. The interior reflects leather scratching and wear
+- **[no match]** Hermes Vert Comics Togo Birkin 25 (listed: 2026-06-10T12:03:24-06:00) -- https://ldj.com/products/hermes-vert-comics-togo-birkin-25
+  > Stickers Intact
 
-- **[no match]** Hermes Noir Epsom Verrou 21 (listed: 2026-06-03T14:52:00-06:00) -- https://ldj.com/products/hermes-noir-epsom-verrou-21
-  > <p>Please refer to the provided photos for a comprehensive visual of any notable wear. The exterior shows minor hardware scuffing. The interior exhibits minimal signs of wear.</p>
-<p>Strap Drop: 9" - 
+Color: Vert Comics
 
-- **[no match]** Louis Vuitton Monogram Petite Malle (listed: 2026-06-03T14:52:02-06:00) -- https://ldj.com/products/louis-vuitton-monogram-petite-malle-1
-  > <p>Please refer to the provided photos for a comprehensive visual of any notable wear. The exterior presents noticeable scratching and visible hardware scuffing. The interior reflects moderate signs o
+Certified Authentic EN/AI/YF
+
+- **[no match]** Chanel Medium Calfskin Chevron Classic Double Flap Bag (listed: 2026-06-10T12:03:42-06:00) -- https://ldj.com/products/chanel-medium-calfskin-chevron-classic-double-flap-bag
+  > Condition: Previously Restored By Third Party
 
