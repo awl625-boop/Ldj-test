@@ -125,7 +125,7 @@ Strap Drop: 25"Certified authentic EN/AI
   > <p>Please refer to the provided photos for a comprehensive visual of any notable wear. </p>
 <p>Color: Vert Verone</p>
 
-- **[no match]** Chanel Mini Caviar Preppy Coco Bowling Bag (listed: 2026-06-02T14:29:06-06:00) -- https://ldj.com/products/chanel-mini-caviar-preppy-coco-bowling-bag
+- **[photo-edit on existing listing]** Chanel Mini Caviar Preppy Coco Bowling Bag (listed: 2026-06-02T14:29:06-06:00) -- https://ldj.com/products/chanel-mini-caviar-preppy-coco-bowling-bag
   > <p>Please refer to the provided photos for a comprehensive visual of any notable wear. The exterior presents minor hardware scuffing.</p>
 <p>Certified Authentic EN/KKD</p>
 
